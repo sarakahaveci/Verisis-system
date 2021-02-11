@@ -31,6 +31,10 @@ function Form() {
       symbol_count += 1;
     }
   }
+  console.log(`Number of capital letter: ${upper_count}`);
+  console.log(`Number of lower letter: ${lower_count}`);
+  console.log(`Number of numbers: ${number_count}`);
+  console.log(`Number of symbols: ${symbol_count}`);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
@@ -64,7 +68,7 @@ function Form() {
           digit: true,
         })}
       />
-      <br/>
+      <br />
       <input type="file" />
       <input type="email" placeholder="email" name="Email" ref={register} />
       <br />
