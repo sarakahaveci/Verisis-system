@@ -7,6 +7,14 @@ function Form() {
   const onSubmit = (data) => {
     console.log(data);
   };
+  const[data,setData]=useState(null);
+  const[submit,setSubmit]= useState(false);
+
+  function getData(val){
+      setData(val.target.value)
+      console.warn(val.target.value)
+  }
+
   const [currentDepartment, setCurrentDepartment] = useState("");
 
   const changeDepartment = (newDepartment) => {
@@ -96,6 +104,7 @@ function Form() {
         ref={register}
       />
       <br />
+            
       <input type="submit" />
     </form>
   );
