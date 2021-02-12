@@ -13,7 +13,6 @@ function Form() {
     setCurrentDepartment(newDepartment);
   };
   let password = "MyPA55w()rd";
-
   let upper_count = 0;
   let lower_count = 0;
   let number_count = 0;
@@ -31,6 +30,7 @@ function Form() {
       symbol_count += 1;
     }
   }
+ 
   console.log(`Number of capital letter: ${upper_count}`);
   console.log(`Number of lower letter: ${lower_count}`);
   console.log(`Number of numbers: ${number_count}`);
@@ -75,7 +75,8 @@ function Form() {
           lowerCase: true,
           digit: true,
         })}
-      />
+ 
+        />
       <br />
       Profile Picture
       <input type="file" />
