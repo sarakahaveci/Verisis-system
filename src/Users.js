@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 function Users(props) {
+  const useState = React.useState;
   const { register, errors, option, setOption } = useForm();
   const [name, setName] = useState();
   const [username, setUsername] = useState();

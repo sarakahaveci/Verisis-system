@@ -1,8 +1,8 @@
 import { React, Component } from "react";
 import "./App.css";
 import Data from "./components/Data";
-import Users from "./Form";
-import data from "./Form";
+import Users from "./Users";
+import data from "./Users";
 
 class App extends Component {
   state = {
