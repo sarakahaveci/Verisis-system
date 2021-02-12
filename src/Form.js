@@ -10,14 +10,13 @@ function Form() {
   };
   const [
     name,
-    setName,
-    username,
-    setUsername,
-    surname,
-    setSurname,
-    active,
-    setActive,
-  ] = useState(null);
+    setName]=useState()
+    const[username,
+    setUsername] = useState()
+    const [surname,
+    setSurname]=useState()
+    const [active,
+    setActive]= useState()
   const [data, setData] = useState(null);
   const [submit, setSubmit] = useState(false);
   const [currentDepartment, setCurrentDepartment] = useState("");
@@ -49,8 +48,12 @@ function Form() {
   console.log(`Number of lower letter: ${lower_count}`);
   console.log(`Number of numbers: ${number_count}`);
   console.log(`Number of symbols: ${symbol_count}`);
+  function handleSubmit (e){
+      e.preventDefault ()
+      props.setData()
+  }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       User Name
       <input
         onChange={(event) => setUsername(event.target.value)}
@@ -79,7 +82,6 @@ function Form() {
       />
       <br />
       <select
-        onChange={(event) => setDepartment(event.target.value)}
         onChange={(event) => changeDepartment(event.target.value)}
         value={currentDepartment}
       >
@@ -124,8 +126,9 @@ function Form() {
         ref={register}
       />
       <br />
+      is Active
       <input
-        type="active"
+        type="text"
         onChange={(event) => setActive(event.target.value)}
       />
       <input type="submit" />
