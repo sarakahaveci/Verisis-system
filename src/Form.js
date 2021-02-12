@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 function Form() {
-  const { register, handleSubmit, errors, option, setOption } = useForm();
+  const { register, handleSubmit, option } = useForm();
   const onSubmit = (data) => {
     console.log(data);
   };
-  const [data, setData] = useState(null);
+  const [setData] = useState(null);
   const [submit, setSubmit] = useState(false);
 
   function getData(val) {
@@ -15,7 +15,6 @@ function Form() {
     setSubmit(false);
     console.warn(val.target.value);
   }
-  const data= {username},{name},{surname},{Department},{activeStatus};
   const [currentDepartment, setCurrentDepartment] = useState("");
 
   const changeDepartment = (newDepartment) => {
@@ -62,7 +61,8 @@ function Form() {
       <br />
       <select
         onChange={(event) => changeDepartment(event.target.value)}
-        value={currentDepartment} name="department"
+        value={currentDepartment}
+        name="department"
       >
         <option value="N/A">Choose Your Department</option>
         <option value="1">Electrical Engineering</option>
