@@ -37,14 +37,20 @@ function Form() {
   console.log(`Number of symbols: ${symbol_count}`);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      User Name
       <input
         type="text"
         placeholder="username"
         name="username"
         ref={register}
       />
+      <br />
+      Name
       <input type="text" placeholder="name" name="name" ref={register} />
+      <br />
+      Surname
       <input type="text" placeholder="surname" name="surname" ref={register} />
+      <br />
       <select
         onChange={(event) => changeDepartment(event.target.value)}
         value={currentDepartment}
@@ -55,6 +61,8 @@ function Form() {
         <option value="3">Chemical Engineering</option>
         <option value="4">Computer Sciense and Engineering</option>
       </select>
+      <br />
+      Password
       <input
         type="password"
         placeholder="password"
@@ -69,7 +77,10 @@ function Form() {
         })}
       />
       <br />
+      Profile Picture
       <input type="file" />
+      <br />
+      Email
       <input type="email" placeholder="email" name="Email" ref={register} />
       <br />
       Day of Start

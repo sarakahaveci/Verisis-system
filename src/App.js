@@ -22,8 +22,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           Welcome to the Verisis System
-          <Form onChange={(fields) => this.onChange(fields)} />
         </header>
+        <Form onChange={(fields) => this.onChange(fields)} />
       </div>
     );
   }
