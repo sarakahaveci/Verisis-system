@@ -1,6 +1,5 @@
 import { React, Component } from "react";
 import "./App.css";
-import Data from "./components/Data";
 import Users from "./Users";
 import data from "./Users";
 
@@ -11,7 +10,7 @@ class App extends Component {
 
   onChange = (updatedValue) => {
     this.setState({
-      fields: {
+      users: {
         ...this.state.users,
         ...updatedValue,
       },

@@ -5,15 +5,18 @@ import { useForm } from "react-hook-form";
 function Users(props) {
   const useState = React.useState;
   const { register, errors, option, setOption } = useForm();
+  handleChange(e) {
+    this.setState({value: event.target.value});
+  }
   const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [surname, setSurname] = useState();
   const [active, setActive] = useState();
   const [currentDepartment, setCurrentDepartment] = useState("");
 
-  const changeDepartment = (newDepartment) => {
-    setCurrentDepartment(newDepartment);
-  };
+  // const changeDepartment = (newDepartment) => {
+  //   setCurrentDepartment(newDepartment);
+  // };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -56,7 +59,7 @@ function Users(props) {
       />
       <br />
       Choose Your Department
-      <select value={currentDepartment}>
+      <select>
         <option value="N/A">Choose Your Department</option>
         <option value="1">Electrical Engineering</option>
         <option value="2">Mechanical Engineering</option>
