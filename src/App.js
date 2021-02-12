@@ -3,6 +3,7 @@ import "./App.css";
 import Data from "./components/Data";
 import Form from "./Form";
 import data from "./Form";
+
 class App extends Component {
   state = {
     fields: {},
@@ -21,8 +22,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">Welcome to the Verisis System</header>
-        <Form onChange={(fields) => this.onChange(fields)} />
-        <div>{JSON.stringify(data, null, 5)}</div>
+        <Data />
+        <Form />
+        <p>{JSON.stringify(data, null, 4)}</p>
       </div>
     );
   }
