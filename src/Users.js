@@ -8,21 +8,35 @@ function Users(props) {
   const [surname, setSurname] = useState();
   const [active, setActive] = useState();
   const [currentDepartment, setCurrentDepartment] = useState("");
-
-  const { register, errors, option, setOption } = useForm();
-  // const handleChange = (setState) => (event) => {
-  //   setState("");
-
-  const changeDepartment = (newDepartment) => {
-    setCurrentDepartment(newDepartment);
-  };
-  function handleChange(e) {
+  const { register, option } = useForm();
+  const handleChange = (setState) => (e) => {
+    setState("");
     console.log(e);
-  }
+  };
   function handleSubmit(e) {
     e.preventDefault();
     props.setData((prev) => prev.concat({ username, name, surname, active }));
   }
+ 
+  let password = "MyPA55w()rd";
+  let upper_count = 0;
+  let lower_count = 0;
+  let number_count = 0;
+  let symbol_count = 0;
+  for (let i = 0; i < password.length; i++) {
+    let c = password.charAt(i);
+ 
+    if ("A" <= c && c <= "Z") {
+      upper_count += 1;
+    } else if ("a" <= c && c <= "z") {
+      lower_count += 1;
+    } else if ("0" <= c && c <= "9") {
+      number_count += 1;
+    } else {
+      symbol_count += 1;
+    }
+  }
+
   return (
     <form>
       User Name
@@ -104,7 +118,7 @@ function Users(props) {
         type="checkbox"
         onChange={(e) => setActive(e.target.value)}
       />
-      <input type="submit" />
+      <input onSubmit="Users()" type="submit" />
     </form>
   );
 }
