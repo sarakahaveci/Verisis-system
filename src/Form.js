@@ -7,14 +7,15 @@ function Form() {
   const onSubmit = (data) => {
     console.log(data);
   };
-  const[data,setData]=useState(null);
-  const[submit,setSubmit]= useState(false);
+  const [data, setData] = useState(null);
+  const [submit, setSubmit] = useState(false);
 
-  function getData(val){
-      setData(val.target.value)
-      console.warn(val.target.value)
+  function getData(val) {
+    setData(val.target.value);
+    setSubmit(false);
+    console.warn(val.target.value);
   }
-
+  const data= {username},{name},{surname},{Department},{activeStatus};
   const [currentDepartment, setCurrentDepartment] = useState("");
 
   const changeDepartment = (newDepartment) => {
@@ -61,7 +62,7 @@ function Form() {
       <br />
       <select
         onChange={(event) => changeDepartment(event.target.value)}
-        value={currentDepartment}
+        value={currentDepartment} name="department"
       >
         <option value="N/A">Choose Your Department</option>
         <option value="1">Electrical Engineering</option>
@@ -104,8 +105,9 @@ function Form() {
         ref={register}
       />
       <br />
-            
-      <input type="submit" />
+      {submit ? <h1>data</h1> : null}
+      <input type="text" onChange={getData} />
+      <button onClick={() => setSubmit(true)}> Submit </button>
     </form>
   );
 }
