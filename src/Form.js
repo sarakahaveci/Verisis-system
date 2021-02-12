@@ -30,7 +30,7 @@ function Form() {
       symbol_count += 1;
     }
   }
- 
+
   console.log(`Number of capital letter: ${upper_count}`);
   console.log(`Number of lower letter: ${lower_count}`);
   console.log(`Number of numbers: ${number_count}`);
@@ -71,12 +71,8 @@ function Form() {
           required: true,
           minLength: 8,
           maxLength: 16,
-          upperCase: true,
-          lowerCase: true,
-          digit: true,
         })}
- 
-        />
+      />
       <br />
       Profile Picture
       <input type="file" />
