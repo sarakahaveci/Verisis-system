@@ -3,18 +3,18 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 function Form() {
-  const { register, handleSubmit, option } = useForm();
+  const { register, handleSubmit, errors, option, setOption } = useForm();
   const onSubmit = (data) => {
     console.log(data);
   };
-  const [setData] = useState(null);
-  const [submit, setSubmit] = useState(false);
+  const[data,setData]=useState(null);
+  const[submit,setSubmit]= useState(false);
 
-  function getData(val) {
-    setData(val.target.value);
-    setSubmit(false);
-    console.warn(val.target.value);
+  function getData(val){
+      setData(val.target.value)
+      console.warn(val.target.value)
   }
+  
   const [currentDepartment, setCurrentDepartment] = useState("");
 
   const changeDepartment = (newDepartment) => {
@@ -62,7 +62,6 @@ function Form() {
       <select
         onChange={(event) => changeDepartment(event.target.value)}
         value={currentDepartment}
-        name="department"
       >
         <option value="N/A">Choose Your Department</option>
         <option value="1">Electrical Engineering</option>
@@ -105,9 +104,7 @@ function Form() {
         ref={register}
       />
       <br />
-      {submit ? <h1>data</h1> : null}
-      <input type="text" onChange={getData} />
-      <button onClick={() => setSubmit(true)}> Submit </button>
+      <input type="submit" />
     </form>
   );
 }
