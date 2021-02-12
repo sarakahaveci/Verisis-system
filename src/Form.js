@@ -8,14 +8,23 @@ function Form() {
   const onSubmit = (data) => {
     console.log(data);
   };
-  const[data,setData]=useState(null);
-  const[submit,setSubmit]= useState(false);  
+  const [
+    name,
+    setName,
+    username,
+    setUsername,
+    surname,
+    setSurname,
+    active,
+    setActive,
+  ] = useState(null);
+  const [data, setData] = useState(null);
+  const [submit, setSubmit] = useState(false);
   const [currentDepartment, setCurrentDepartment] = useState("");
 
   const changeDepartment = (newDepartment) => {
     setCurrentDepartment(newDepartment);
   };
-    
 
   let password = "MyPA55w()rd";
   let upper_count = 0;
@@ -44,6 +53,7 @@ function Form() {
     <form onSubmit={handleSubmit(onSubmit)}>
       User Name
       <input
+        onChange={(event) => setUsername(event.target.value)}
         type="text"
         placeholder="username"
         name="username"
@@ -51,12 +61,25 @@ function Form() {
       />
       <br />
       Name
-      <input type="text" placeholder="name" name="name" ref={register} />
+      <input
+        onChange={(event) => setName(event.target.value)}
+        type="text"
+        placeholder="name"
+        name="name"
+        ref={register}
+      />
       <br />
       Surname
-      <input type="text" placeholder="surname" name="surname" ref={register} />
+      <input
+        onChange={(event) => setSurname(event.target.value)}
+        type="text"
+        placeholder="surname"
+        name="surname"
+        ref={register}
+      />
       <br />
       <select
+        onChange={(event) => setDepartment(event.target.value)}
         onChange={(event) => changeDepartment(event.target.value)}
         value={currentDepartment}
       >
@@ -101,7 +124,10 @@ function Form() {
         ref={register}
       />
       <br />
-      
+      <input
+        type="active"
+        onChange={(event) => setActive(event.target.value)}
+      />
       <input type="submit" />
     </form>
   );
