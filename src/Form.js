@@ -1,62 +1,33 @@
-import axios from "axios";
 import * as React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-function Form() {
-  const { register, handleSubmit, errors, option, setOption } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-  const [
-    name,
-    setName]=useState()
-    const[username,
-    setUsername] = useState()
-    const [surname,
-    setSurname]=useState()
-    const [active,
-    setActive]= useState()
-  const [data, setData] = useState(null);
-  const [submit, setSubmit] = useState(false);
+function Users(props) {
+  const { register, errors, option, setOption } = useForm();
+  const [name, setName] = useState();
+  const [username, setUsername] = useState();
+  const [surname, setSurname] = useState();
+  const [active, setActive] = useState();
   const [currentDepartment, setCurrentDepartment] = useState("");
 
   const changeDepartment = (newDepartment) => {
     setCurrentDepartment(newDepartment);
   };
 
-  let password = "MyPA55w()rd";
-  let upper_count = 0;
-  let lower_count = 0;
-  let number_count = 0;
-  let symbol_count = 0;
-  for (let i = 0; i < password.length; i++) {
-    let c = password.charAt(i);
-
-    if ("A" <= c && c <= "Z") {
-      upper_count += 1;
-    } else if ("a" <= c && c <= "z") {
-      lower_count += 1;
-    } else if ("0" <= c && c <= "9") {
-      number_count += 1;
-    } else {
-      symbol_count += 1;
-    }
-  }
-
-  console.log(`Number of capital letter: ${upper_count}`);
-  console.log(`Number of lower letter: ${lower_count}`);
-  console.log(`Number of numbers: ${number_count}`);
-  console.log(`Number of symbols: ${symbol_count}`);
-  function handleSubmit (e){
-      e.preventDefault ()
-      props.setData()
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.setData((prev) => prev.concat({ username, name, surname, active }));
+    setUsername("");
+    setName("");
+    setSurname("");
+    setActive("");
   }
   return (
     <form>
       User Name
       <input
-        onChange={(event) => setUsername(event.target.value)}
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
         type="text"
         placeholder="username"
         name="username"
@@ -65,7 +36,8 @@ function Form() {
       <br />
       Name
       <input
-        onChange={(event) => setName(event.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         type="text"
         placeholder="name"
         name="name"
@@ -74,17 +46,16 @@ function Form() {
       <br />
       Surname
       <input
-        onChange={(event) => setSurname(event.target.value)}
+        value={surname}
+        onChange={(e) => setSurname(e.target.value)}
         type="text"
         placeholder="surname"
         name="surname"
         ref={register}
       />
       <br />
-      <select
-        onChange={(event) => changeDepartment(event.target.value)}
-        value={currentDepartment}
-      >
+      Choose Your Department
+      <select value={currentDepartment}>
         <option value="N/A">Choose Your Department</option>
         <option value="1">Electrical Engineering</option>
         <option value="2">Mechanical Engineering</option>
@@ -128,11 +99,12 @@ function Form() {
       <br />
       is Active
       <input
-        type="text"
-        onChange={(event) => setActive(event.target.value)}
+        value={active}
+        type="checkbox"
+        onChange={(e) => setActive(e.target.value)}
       />
       <input type="submit" />
     </form>
   );
 }
-export default Form;
+export default Users;
