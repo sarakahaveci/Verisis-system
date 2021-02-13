@@ -9,8 +9,9 @@ function Users(props) {
   const [active, setActive] = useState();
   const [currentDepartment, setCurrentDepartment] = useState("");
   const { register, option } = useForm();
-  const handleChange = (setState) => (e) => {
-    setState("");
+  const Birthday = Birthday;
+  const handleChange =(e) => {
+    e('');
     console.log(e);
   };
   function handleSubmit(e) {
@@ -32,7 +33,10 @@ function Users(props) {
       lower_count += 1;
     } else if ("0" <= c && c <= "9") {
       number_count += 1;
-    } else {
+    }  else if (password.include(Birthday)){
+      return false;
+    }
+     else {
       symbol_count += 1;
     }
   }
@@ -106,9 +110,10 @@ function Users(props) {
       <br />
       Birthday
       <input
+      value="Birthday"
         type="date"
-        placeholder="birthday"
-        name="birthday"
+        placeholder="Birthday"
+        name="Birthday"
         ref={register}
       />
       <br />
