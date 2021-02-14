@@ -9,16 +9,15 @@ function Users(props) {
   const [active, setActive] = useState();
   const [currentDepartment, setCurrentDepartment] = useState("");
   const { register, option } = useForm();
-  const Birthday = Birthday;
-  const handleChange =(e) => {
-    e('');
+  const handleChange = (e) => {
+    e("");
     console.log(e);
   };
   function handleSubmit(e) {
     e.preventDefault();
     props.setData((prev) => prev.concat({ username, name, surname, active }));
   }
- 
+
   let password = "MyPA55w()rd";
   let upper_count = 0;
   let lower_count = 0;
@@ -26,17 +25,14 @@ function Users(props) {
   let symbol_count = 0;
   for (let i = 0; i < password.length; i++) {
     let c = password.charAt(i);
- 
+
     if ("A" <= c && c <= "Z") {
       upper_count += 1;
     } else if ("a" <= c && c <= "z") {
       lower_count += 1;
     } else if ("0" <= c && c <= "9") {
       number_count += 1;
-    }  else if (password.include(Birthday)){
-      return false;
-    }
-     else {
+    } else {
       symbol_count += 1;
     }
   }
@@ -110,7 +106,7 @@ function Users(props) {
       <br />
       Birthday
       <input
-      value="Birthday"
+        value="Birthday"
         type="date"
         placeholder="Birthday"
         name="Birthday"
