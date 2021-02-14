@@ -59,13 +59,11 @@ function Users(props) {
     setActive(e.target.value);
   };
 
-
   return (
     <form>
       User Name
       <input
         value={username}
-        defaultValue={username}
         onChange={handleUserNameChange}
         type="text"
         placeholder="username"
@@ -77,7 +75,6 @@ function Users(props) {
       Name
       <input
         value={name}
-        defaultValue={name}
         onChange={handleNameChange}
         type="text"
         placeholder="name"
@@ -87,9 +84,8 @@ function Users(props) {
       <br />
       Surname
       <input
-      value={surname}
-        defaultValue={surname}
-        onChange={handleChange}
+        value={surname}
+        onChange={handleSurNameChange}
         type="text"
         placeholder="surname"
         name="surname"
@@ -97,7 +93,8 @@ function Users(props) {
       />
       <br />
       Choose Your Department
-      <select defaultValue={currentDepartment}>
+      <select value={currentDepartment}>
+        onChange={handleCurrentDepartmentChange}
         <option value="N/A">Choose Your Department</option>
         <option value="1">Electrical Engineering</option>
         <option value="2">Mechanical Engineering</option>
@@ -107,7 +104,7 @@ function Users(props) {
       <br />
       Password
       <input
-        defaultValue="{password}"
+        value={password}
         type="password"
         placeholder="password"
         name="password"
@@ -134,7 +131,6 @@ function Users(props) {
       <br />
       Birthday
       <input
-        defaultValue="Birthday"
         type="date"
         placeholder="Birthday"
         name="Birthday"
@@ -142,11 +138,7 @@ function Users(props) {
       />
       <br />
       is Active
-      <input
-        defaultValue={active}
-        type="checkbox"
-        onChange={(e) => setActive(e.target.value)}
-      />
+      <input value={active} type="checkbox" onChange={handleActiveChange} />
       <button onSubmit={handleSubmit}> Submit </button>
     </form>
   );
