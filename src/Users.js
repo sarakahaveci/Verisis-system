@@ -10,8 +10,8 @@ function Users(props) {
   const [currentDepartment, setCurrentDepartment] = useState("");
   const { register, option } = useForm();
   const handleChange = (e) => {
-    e("");
-    console.log(e);
+    e.preventDefault();
+   console.log(e);
   };
   function handleSubmit(e) {
     e.preventDefault();
@@ -80,10 +80,11 @@ function Users(props) {
       <br />
       Password
       <input
-        type="password"
-        placeholder="password"
-        name="password"
-        ref={register({
+          value="{password}"
+          type="password"
+          placeholder="password"
+          name="password"
+          ref={register({
           required: true,
           minLength: 8,
           maxLength: 16,
@@ -119,7 +120,7 @@ function Users(props) {
         type="checkbox"
         onChange={(e) => setActive(e.target.value)}
       />
-      <input onSubmit="Users()" type="submit" />
+      <button onSubmit={Users}> Submit </button>
     </form>
   );
 }

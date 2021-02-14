@@ -3,21 +3,8 @@ import "./App.css";
 import Users from "./Users";
 import data from "./Users";
 
-class App extends Component {
-  state = {
-    users: {},
-  };
-
-  onChange = (updatedValue) => {
-    this.setState({
-      users: {
-        ...this.state.users,
-        ...updatedValue,
-      },
-    });
-  };
-
-  render() {
+function App () {
+  
     return (
       <div className="App">
         <header className="App-header">Welcome to the Verisis System</header>
@@ -26,5 +13,4 @@ class App extends Component {
       </div>
     );
   }
-}
 export default App;
