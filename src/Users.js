@@ -11,7 +11,7 @@ function Users(props) {
   const { register, option } = useForm();
   const handleChange = (e) => {
     e.preventDefault();
-   console.log(e);
+    console.log(e);
   };
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,7 +41,7 @@ function Users(props) {
     <form>
       User Name
       <input
-        value={username}
+        defaultValue={username}
         onChange={(e) => setUsername(e.target.value)}
         type="text"
         placeholder="username"
@@ -51,7 +51,7 @@ function Users(props) {
       <br />
       Name
       <input
-        value={name}
+        defaultValue={name}
         onChange={(e) => setName(e.target.value)}
         type="text"
         placeholder="name"
@@ -61,7 +61,7 @@ function Users(props) {
       <br />
       Surname
       <input
-        value={surname}
+        defaultValue={surname}
         onChange={(e) => setSurname(e.target.value)}
         type="text"
         placeholder="surname"
@@ -80,11 +80,11 @@ function Users(props) {
       <br />
       Password
       <input
-          value="{password}"
-          type="password"
-          placeholder="password"
-          name="password"
-          ref={register({
+        defaultValue="{password}"
+        type="password"
+        placeholder="password"
+        name="password"
+        ref={register({
           required: true,
           minLength: 8,
           maxLength: 16,
@@ -107,7 +107,7 @@ function Users(props) {
       <br />
       Birthday
       <input
-        value="Birthday"
+        defaultValue="Birthday"
         type="date"
         placeholder="Birthday"
         name="Birthday"
@@ -116,11 +116,11 @@ function Users(props) {
       <br />
       is Active
       <input
-        value={active}
+        defaultValue={active}
         type="checkbox"
         onChange={(e) => setActive(e.target.value)}
       />
-      <button onSubmit={Users}> Submit </button>
+      <button onSubmit={handleSubmit}> Submit </button>
     </form>
   );
 }
