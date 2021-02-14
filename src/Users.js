@@ -9,10 +9,7 @@ function Users(props) {
   const [active, setActive] = useState();
   const [currentDepartment, setCurrentDepartment] = useState("");
   const { register, option } = useForm();
-  const handleChange = (e) => {
-    e.preventDefault();
-    console.log(e);
-  };
+
   function handleSubmit(e) {
     e.preventDefault();
     props.setData((prev) => prev.concat({ username, name, surname, active }));
@@ -36,23 +33,52 @@ function Users(props) {
       symbol_count += 1;
     }
   }
+  const handleUserNameChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.value); //username value
+    setUsername(e.target.value);
+  };
+  const handleNameChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.value); //username value
+    setName(e.target.value);
+  };
+  const handleSurNameChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.value); //username value
+    setSurname(e.target.value);
+  };
+  const handleCurrentDepartmentChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.value); //username value
+    setCurrentDepartment(e.target.value);
+  };
+  const handleActiveChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.value); //username value
+    setActive(e.target.value);
+  };
+
 
   return (
     <form>
       User Name
       <input
+        value={username}
         defaultValue={username}
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={handleUserNameChange}
         type="text"
         placeholder="username"
         name="username"
         ref={register}
       />
+      ;
       <br />
       Name
       <input
+        value={name}
         defaultValue={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={handleNameChange}
         type="text"
         placeholder="name"
         name="name"
@@ -61,8 +87,9 @@ function Users(props) {
       <br />
       Surname
       <input
+      value={surname}
         defaultValue={surname}
-        onChange={(e) => setSurname(e.target.value)}
+        onChange={handleChange}
         type="text"
         placeholder="surname"
         name="surname"
@@ -70,7 +97,7 @@ function Users(props) {
       />
       <br />
       Choose Your Department
-      <select>
+      <select defaultValue={currentDepartment}>
         <option value="N/A">Choose Your Department</option>
         <option value="1">Electrical Engineering</option>
         <option value="2">Mechanical Engineering</option>
