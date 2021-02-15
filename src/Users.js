@@ -35,27 +35,27 @@ function Users(props) {
   }
   const handleUserNameChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value); 
+    console.log(e.target.value);
     setUsername(e.target.value);
   };
   const handleNameChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value); 
+    console.log(e.target.value);
     setName(e.target.value);
   };
   const handleSurNameChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value); 
+    console.log(e.target.value);
     setSurname(e.target.value);
   };
   const handleCurrentDepartmentChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value); 
+    console.log(e.target.value);
     setCurrentDepartment(e.target.value);
   };
   const handleActiveChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value); 
+    console.log(e.target.value);
     setActive(e.target.value);
   };
 
@@ -104,7 +104,6 @@ function Users(props) {
       <br />
       Password
       <input
-        value={password}
         type="password"
         placeholder="password"
         name="password"
